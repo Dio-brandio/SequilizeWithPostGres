@@ -31,7 +31,6 @@ async function Authenticate(req, res) {
         }
 
         const token = createToken(userCredentials);
-        console.log(token);
         res.cookie("authtoken", token)  
         return res.status(StatusCode.OK.code).json({ token, ok: true });
 

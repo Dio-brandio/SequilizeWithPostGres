@@ -4,7 +4,7 @@ const usercontroller= require('../controllers/user.controller.js');
 const permit = require('../middleware/permit.js');
 
 
-router.get('/allusers', usercontroller.GetUsers)
+router.get('/allusers',permit.IsAdmin, usercontroller.GetUsers)
 router.get('/profile',permit.IsUser, usercontroller.GetProfile)
 router.get('/:userid', usercontroller.GetUser)
 

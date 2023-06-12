@@ -25,7 +25,9 @@ const permit = {
             if (!tokendata.ok) {
                 return res.status(Unauthorized.code).json({ message: Unauthorized.message, ok: false })
             }
-            if (tokendata.data && !tokendata.data.permissions.includes('ViewOwnInformation')) {
+            console.log(tokendata.data);
+            
+            if (tokendata.data && !tokendata.data.permissions.includes('View All Users')) {
                 return res.status(Unauthorized.code).json({ message: Unauthorized.message, ok: false })
             }
             next()
